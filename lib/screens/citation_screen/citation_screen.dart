@@ -92,9 +92,12 @@ class _CitationScreenState extends State<CitationScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CitationContainer(
-                            citationText: AppStrings.referenceTitle +
-                                ' : ' +
-                                citations[citationNumber].reference,
+                            citationText:
+                                citations[citationNumber].reference.isEmpty
+                                    ? ''
+                                    : AppStrings.referenceTitle +
+                                        ' : ' +
+                                        citations[citationNumber].reference,
                             isReference: true,
                           ),
                           Expanded(
