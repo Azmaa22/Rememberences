@@ -4,7 +4,7 @@ import 'package:flutter_apps/data/repos/citation_repo.dart';
 import 'package:flutter_apps/screens/citation_screen/widgets/app_bar_container.dart';
 import 'package:flutter_apps/screens/citation_screen/widgets/citation_container.dart';
 import 'package:flutter_apps/screens/citation_screen/widgets/citation_counter.dart';
-import 'package:flutter_apps/screens/citation_screen/widgets/navigation_button.dart';
+import 'package:flutter_apps/screens/citation_screen/widgets/number_container.dart';
 import 'package:flutter_apps/utilities/constants/app_assets.dart';
 import 'package:flutter_apps/utilities/constants/app_colors.dart';
 import 'package:flutter_apps/utilities/constants/app_strings.dart';
@@ -134,7 +134,8 @@ class _CitationScreenState extends State<CitationScreen> {
                                       MainAxisAlignment.spaceAround,
                                   children: [
                                     NumberContainer(
-                                      title:
+                                      title: AppStrings.numberOfTimes,
+                                      value:
                                           '${citations[citationNumber].count}',
                                       isLeft: false,
                                     ),
@@ -162,7 +163,8 @@ class _CitationScreenState extends State<CitationScreen> {
                                     ),
                                     NumberContainer(
                                       isLeft: true,
-                                      title:
+                                      title: AppStrings.numberOfRemembrances,
+                                      value:
                                           '${citationNumber + 1} / ${citations.length} ',
                                     ),
                                   ],

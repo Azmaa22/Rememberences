@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class NumberContainer extends StatelessWidget {
-  final String title;
+  final String title, value;
   final bool isLeft;
 
   const NumberContainer({
     Key? key,
     required this.title,
+    required this.value,
     required this.isLeft,
   }) : super(key: key);
 
@@ -26,12 +27,23 @@ class NumberContainer extends StatelessWidget {
         ),
       ),
       child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 25.0,
-          ),
+        child: Column(
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 15.0,
+              ),
+            ),
+            Text(
+              value,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 25.0,
+              ),
+            ),
+          ],
         ),
       ),
     );
