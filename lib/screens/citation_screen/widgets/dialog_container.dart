@@ -25,7 +25,6 @@ class DialogContainer extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {
-            print('ok');
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const HomeScreen()),

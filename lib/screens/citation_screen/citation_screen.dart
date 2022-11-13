@@ -56,7 +56,6 @@ class _CitationScreenState extends State<CitationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(completeCitations.length);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -143,22 +142,26 @@ class _CitationScreenState extends State<CitationScreen> {
                                       count: completeCitations[citationNumber]
                                           .toString(),
                                       onPress: () {
-                                        print(
-                                            completeCitations[citationNumber]);
-                                        setState(() {
-                                          completeCitations[citationNumber] +=
-                                              1;
+                                        if (completeCitations[citationNumber] ==
+                                            citations[citationNumber].count -
+                                                1) {
                                           if (completeCitations[
-                                                  citationNumber] ==
+                                                  citationNumber] <
                                               citations[citationNumber].count) {
-                                            _pageController.nextPage(
-                                              duration: const Duration(
-                                                  milliseconds: 400),
-                                              curve: Curves.easeInOut,
-                                            );
-                                            completeNumber = 0;
+                                            ++completeCitations[citationNumber];
                                           }
-                                        });
+                                          _pageController.nextPage(
+                                            duration: const Duration(
+                                                milliseconds: 400),
+                                            curve: Curves.easeInOut,
+                                          );
+                                        } else if (completeCitations[
+                                                citationNumber] <
+                                            citations[citationNumber].count) {
+                                          setState(() {
+                                            ++completeCitations[citationNumber];
+                                          });
+                                        }
                                       },
                                     ),
                                     NumberContainer(
